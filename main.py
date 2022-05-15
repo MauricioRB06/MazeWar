@@ -51,12 +51,21 @@ while run:
 
     if start:
 
+        # Python 3.10.4
+
         match algorithms:
             case True:
                 binary_tree.generate(screen)
             case False:
                 recursive_backtracker.generate(screen)
 
+        # Python 3.9.2
+
+        #if algorithms:
+        #    binary_tree.generate(screen)
+        #else:
+        #    recursive_backtracker.generate(screen)
+        
     else:
         PressEnter.render(screen)
         PressSpace.render(screen)
