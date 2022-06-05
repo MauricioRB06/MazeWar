@@ -66,7 +66,7 @@ class RecursiveBacktracker:
                 neighbour.isCurrent = False
 
                 stack.append(neighbour)
-                # self.grid.show(screen)
+                self.grid.show(screen)
 
         fin = time.time()
         self.grid.show(screen)

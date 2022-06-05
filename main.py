@@ -5,14 +5,23 @@ from ui.ui import *
 from classes.recursiveBacktracker import RecursiveBacktracker
 from classes.binaryTree import BinaryTree
 from classes.grid import Grid
+import os
 
 # Initialize pygame
 pygame.init()
+
+# Initialize the Song
+SONG = os.path.join(os.getcwd(),'resources/CORE.xm')
+pygame.mixer.init()
+pygame.mixer.music.load(SONG)
+pygame.mixer.music.play(-1) #Play Music
+
 
 # Initialize the screen
 screen = pygame.display.set_mode(size)
 clock = pygame.time.Clock()
 fps = 60
+
 
 recursive_backtracker = RecursiveBacktracker(Grid(rows, cols, cell_size, cell_wall_size))
 binary_tree = BinaryTree(Grid(rows, cols, cell_size, cell_wall_size))
@@ -26,7 +35,6 @@ PressSpace = TextUI("SPACE' Para Generar el Laberinto con Pilas ", (width//2, (h
 PressEnter.fontSize = 20
 
 while run:
-
     # Set Caption and fps
     clock.tick(fps)
     frame_rate = int(clock.get_fps())
@@ -55,7 +63,7 @@ while run:
 
         match algorithms:
             case True:
-                binary_tree.generate(screen)
+                binary_tree.generate(screen) 
             case False:
                 recursive_backtracker.generate(screen)
 

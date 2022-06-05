@@ -53,7 +53,7 @@ class BinaryTree:
                     if choice is not None:
                         Grid.join_and_destroy_walls(self.grid.cells[x][y], choice)
 
-                    # self.grid.show(screen)
+                    self.grid.show(screen)
                     self.grid.cells[x][y].isCurrent = False
                     pygame.display.flip()
 
