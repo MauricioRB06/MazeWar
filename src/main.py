@@ -170,6 +170,7 @@ def main_menu():
 
 """
 def LoadGameScreen():
+    Testyle = 0
     music.stop()
     load_bar = 0
     loading = True
