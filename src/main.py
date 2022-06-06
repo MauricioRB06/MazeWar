@@ -85,7 +85,7 @@ from pygame.transform import scale
 #import Game_Loop
 
 from Directory_Settings import SCREEN, CLOCK, Width, Height, FPS, f_music, sfxButtonClick, bgMenu,\
-    imgCursor, imgCredits, imgHowToPlay, bgMenu, bgCredits, sfxCat, game_folder
+    imgCursor, imgCredits, imgHowToPlay, bgMenu, bgCredits, game_folder
 
 pygame.init()
 pygame.mixer.init()
