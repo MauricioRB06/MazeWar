@@ -81,6 +81,7 @@ from pygame.font import Font
 from pygame.image import load
 from pygame.mixer import music
 from pygame.transform import scale
+from pygame.display import set_mode
 
 #import Game_Loop
 
@@ -129,8 +130,16 @@ def main_menu():
             if event.type == MOUSEBUTTONDOWN and event.button == 1:
                 if button_play.collidepoint(mouse.get_pos()):
                     sfxButtonClick.play()
-                    selection = VehicleSelectMenu()
-                    if selection != 0:
+                    game_resolution = set_resolution()
+                    
+                    if game_resolution == 0:
+                        print("600X600")
+                    elif game_resolution == 1:
+                        print("800x800")
+                    elif game_resolution == 2:
+                        print("1000x1000")
+                    elif game_resolution == 3:
+                        print("600X600")
                         sleep(1)
                         LoadGameScreen()
                         final_score = Game_Loop.GameLoop(selection)
@@ -141,6 +150,7 @@ def main_menu():
                         save = open('High_Scores.user', 'a')
                         save.write(str(final_score) + '\n')
                         save.close()
+
                 if button_how_to_play.collidepoint(mouse.get_pos()):
                     sfxButtonClick.play()
                     how_to_play_menu()
@@ -191,71 +201,64 @@ def LoadGameScreen():
             loading = False
     sleep(2)"""
 
-def VehicleSelectMenu():
+# Resolucion
+# tamaño celdas
+# algoritmo
+
+# Colores
+# ver o no la euristica
+
+
+def set_resolution():
+
     selection = True
-    vehicle = 0
-    coin_animation = 1
-    coin_animation_control = 0
-    x_mov = 0
-    button_back = Rect(400, 690, 192, 42)
-    button_car1 = Rect(100, 600, 170, 30)
-    button_car2 = Rect(310, 600, 170, 30)
-    button_car3 = Rect(520, 600, 170, 30)
-    button_car4 = Rect(730, 600, 170, 30)
+    resolution = -1
+
+    button_next = Rect((Width // 2), Height // 1.12, Width // 8, 42)
+    button_res0 = Rect((Width // 2.6), Height // 2.5, 170, 30)
+    button_res1 = Rect((Width // 2.6), Height // 2.1, 170, 30)
+    button_res2 = Rect((Width // 2.65), Height // 1.8, 170, 30)
+    button_res3 = Rect((Width // 2.65), Height // 1.6, 170, 30)
 
     while selection:
+
         CLOCK.tick(60)
         mouse_pos = mouse.get_pos()
+
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 exit()
             if event.type == MOUSEBUTTONDOWN and event.button == 1:
-                if button_back.collidepoint(mouse.get_pos()):
+                if button_next.collidepoint(mouse.get_pos()):
                     sfxButtonClick.play()
                     selection = False
-                if button_car1.collidepoint(mouse.get_pos()):
+                if button_res0.collidepoint(mouse.get_pos()):
                     sfxButtonClick.play()
-                    vehicle = 1
-                    selection = False
-                if button_car2.collidepoint(mouse.get_pos()):
+                    resolution = 600
+                if button_res1.collidepoint(mouse.get_pos()):
                     sfxButtonClick.play()
-                    vehicle = 2
-                    selection = False
-                if button_car3.collidepoint(mouse.get_pos()):
+                    resolution = 800
+                if button_res2.collidepoint(mouse.get_pos()):
                     sfxButtonClick.play()
-                    vehicle = 3
-                    selection = False
-                if button_car4.collidepoint(mouse.get_pos()):
+                    resolution = 1000
+                if button_res3.collidepoint(mouse.get_pos()):
                     sfxButtonClick.play()
-                    vehicle = 4
-                    selection = False
+                    resolution = 2000
 
-        x_move = x_mov % bgVehicleSelection.get_rect().width
-        SCREEN.blit(bgVehicleSelection,
-                    ((x_move - bgVehicleSelection.get_rect().width), 72))
-        if x_move < Width:
-            SCREEN.blit(bgVehicleSelection, (x_move, 72))
-        SCREEN.blit(imgCars, (0, 0))
-        buttons_print(button_back, 'BACK', menuFont)
-        buttons_print(button_car1, 'SELECT', carFont)
-        buttons_print(button_car2, 'SELECT', carFont)
-        buttons_print(button_car3, 'SELECT', carFont)
-        buttons_print(button_car4, 'SELECT', carFont)
+        SCREEN.blit(pygame.transform.scale(bgCredits, (Width, Height)), (0, 0))
+
+        buttons_print(button_next, 'NEXT', menuFont)
+        buttons_print(button_res0, '600px', menuFont)
+        buttons_print(button_res1, '800px', menuFont)
+        buttons_print(button_res2, '1000px', menuFont)
+        buttons_print(button_res3, '2000px', menuFont)
+
         SCREEN.blit(imgCursor, (mouse_pos[0], mouse_pos[1]))
-        SCREEN.blit(bgArcadeMenu, (0, 0))
-        SCREEN.blit(scale(load(join(f_coin, f'Coin_{coin_animation}.png'))
-                          .convert_alpha(), (220, 150)), (370, 855))
 
-        x_mov -= 5
-        coin_animation_control += 1
-
-        if coin_animation_control % 6 == 0:
-            coin_animation += 1
-        if coin_animation > 6:
-            coin_animation = 1
-            coin_animation_control = 0
         display.update()
-    return vehicle
+
+    set_mode((resolution, resolution))
+    return resolution
 
 
 def how_to_play_menu():

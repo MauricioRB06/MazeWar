@@ -28,7 +28,7 @@ f_credits = join(f_menu, 'Credits')
 
 CLOCK = Clock()
 FPS = 60
-Width, Height = 600, 600
+Width, Height = 800, 800
 SCREEN = set_mode((Width, Height))
 set_caption('MazeWar [0.3]')
 set_icon(load(join(images_folder, 'icon.png')).convert_alpha())
