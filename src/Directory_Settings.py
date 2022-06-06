@@ -49,4 +49,3 @@ imgHowToPlay = load(join(f_howToPlay, 'How_To_Play.png')).convert_alpha()
 
 init()
 sfxButtonClick = Sound(join(f_sfx, 'Button_Click.ogg'))
-sfxCat = Sound(join(f_sfx, 'Cat.ogg'))
