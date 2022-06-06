@@ -1,0 +1,60 @@
+100 = [ 6 x 6 ] = 36 Casillas
+
+* Tiempo de ejecución Arbol Binario:		0.006011009216308594
+* Tiempo de ejecución Retroceso recursivo:	0.007002353668212891
+
+60 = [ 10 x 10 ] = 100 Casillas
+
+* Tiempo de ejecución Arbol Binario:		0.023002147674560547
+* Tiempo de ejecución Retroceso recursivo:	0.017996788024902344
+
+50 = [ 12 x 12 ] = 144 Casillas
+
+* Tiempo de ejecución Arbol Binario:		0.030001163482666016
+* Tiempo de ejecución Retroceso recursivo:	0.0309903621673584
+
+40 = [ 15 x 15 ] = 225 Casillas
+
+* Tiempo de ejecución Arbol Binario:		0.047516584396362305
+* Tiempo de ejecución Retroceso recursivo:	0.04999804496765137
+
+30 = [ 20 x 20 ] = 400 Casillas
+
+* Tiempo de ejecución Arbol Binario:		0.08099222183227539
+* Tiempo de ejecución Retroceso recursivo:	0.08529877662658691
+
+25 = [ 24 x 24 ] = 576 Casillas
+
+* Tiempo de ejecución Arbol Binario:		0.1219637393951416
+* Tiempo de ejecución Retroceso recursivo:	0.12615561485290527
+
+20 = [ 30 x 30 ] = 576 Casillas
+
+* Tiempo de ejecución Arbol Binario:		0.17792034149169922
+* Tiempo de ejecución Retroceso recursivo:	0.18314695358276367
+
+15 = [ 40 x 40 ] = 1600 Casillas
+
+* Tiempo de ejecución Arbol Binario:		0.32111358642578125
+* Tiempo de ejecución Retroceso recursivo:	0.32094621658325195
+
+10 = [ 60 x 60 ] = 3600 Casillas
+
+* Tiempo de ejecución Arbol Binario:		0.7350101470947266
+* Tiempo de ejecución Retroceso recursivo:	0.7112786769866943
+
+
+6 = [ 100 x 100 ] = 10.000 Casillas
+
+* Tiempo de ejecución Arbol Binario:		1.922520637512207
+* Tiempo de ejecución Retroceso recursivo: 2.0523548126220703
+
+5 = [ 120 x 120 ] = 14.400 Casillas
+
+* Tiempo de ejecución Arbol Binario:		2.734421491622925
+* Tiempo de ejecución Retroceso recursivo:	2.9908721446990967
+
+4 = [ 150 x 150 ] = 22.500 Casillas
+
+* Tiempo de ejecución Arbol Binario:		4.393938779830933
+* Tiempo de ejecución Retroceso recursivo:	4.540259122848511
