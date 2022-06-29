@@ -5,14 +5,14 @@ class Heuristic:
     def __init__(self, rows, cols):
         self.rows = rows
         self.cols = cols
-        self.cells_record = [[None for y in range(rows)] for x in range(cols)]
+        self.cells_record = [[None for _ in range(rows)] for _ in range(cols)]
 
     def set_record(self, cell, distance):
         self.cells_record[cell.x][cell.y] = distance
 
     def get_farthest(self, start, grid):
         max_distance = 0
-        farthest= start
+        farthest = start
         for x in range(self.cols):
             for y in range(self.rows):
                 dist = self.cells_record[x][y] if self.cells_record[x][y] else 0

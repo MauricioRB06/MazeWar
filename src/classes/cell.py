@@ -44,6 +44,9 @@ class Cell:
 
         # Cell Position
         self.rect = None
+        self.north_rect = None
+        self.east_rect = None
+        self.west_rect = None
 
     def calculate_heuristic(self, rows, cols):
         h_distances = Heuristic(rows, cols)
@@ -86,6 +89,7 @@ class Cell:
             A = (x, y)
             B = (x + self.size, y)
             pygame.draw.line(screen, self.wall_color, A, B, self.wall_thickness)
+            self.north_rect = pygame.Rect(x, y - self.wall_thickness // 2, self.size, self.wall_thickness)
 
         if self.South is not None or self.y + 1 >= rows:
             A = (x, y + self.size)
@@ -96,6 +100,7 @@ class Cell:
             A = (x + self.size, y)
             B = (x + self.size, y + self.size)
             pygame.draw.line(screen, self.wall_color, A, B, self.wall_thickness)
+            self.east_rect = pygame.Rect(x + self.size - self.wall_thickness//2, y, self.wall_thickness, self.size)
 
         if self.West is not None or self.x - 1 < 0:
             A = (x, y)

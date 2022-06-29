@@ -10,6 +10,7 @@ class Player(Sprite):
 
     def __init__(self, cell_size, start_position, screen):
         super().__init__()
+        self.cell = cell_size
         self.speed = 0
         self.SCREEN = screen
         self.image = pygame.transform.scale(spPlayer, (cell_size//2, cell_size//2))
@@ -39,10 +40,19 @@ class Player(Sprite):
             self.rect.y += self.speed
 
         if self.rect.left < 3:
-            self.rect.left = self.image.get_width()//2
-        if self.rect.right > self.SCREEN.get_width():
-            self.rect.right = self.SCREEN.get_width() - self.image.get_width()//2
-        if self.rect.top < 3:
-            self.rect.top = self.image.get_height()//2
+            self.rect.left = self.rect.left + self.cell//(self.cell * 0.5)
+
         if self.rect.bottom > self.SCREEN.get_height():
-            self.rect.bottom = self.SCREEN.get_height() - self.image.get_height()//2
+            self.rect.bottom = self.rect.bottom - self.cell//(self.cell * 0.5)
+
+    def move_back(self):
+        self.rect.top = self.rect.top + self.cell//(self.cell * 0.5)
+
+    def move_forward(self):
+        self.rect.bottom = self.rect.bottom - self.cell//(self.cell * 0.5)
+
+    def move_left(self):
+        self.rect.left = self.rect.left - self.cell//(self.cell * 0.5)
+
+    def move_right(self):
+        self.rect.right = self.rect.right + self.cell//(self.cell * 0.5)
