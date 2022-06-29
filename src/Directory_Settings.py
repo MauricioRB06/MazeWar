@@ -50,6 +50,7 @@ bgSettings = load(join(f_backgrounds, 'BG_Settings.png')).convert_alpha()
 bgAlgorithms = load(join(f_backgrounds, 'BG_PlayAlgorithms.png')).convert_alpha()
 bgCellSize = load(join(f_backgrounds, 'BG_PlayCellSize.png')).convert_alpha()
 bgVisualMode = load(join(f_backgrounds, 'BG_VisualMode.png')).convert_alpha()
+bgDifficulty = load(join(f_backgrounds, 'BG_Difficulty.png')).convert_alpha()
 
 ftPause = load(join(f_pause, 'Image_pause.png')).convert_alpha()
 ftCredits = load(join(f_backgrounds, 'FT_Credits.png')).convert_alpha()

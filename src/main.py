@@ -24,7 +24,8 @@ from pygame.transform import scale
 
 from Directory_Settings import DEFAULT_SCREEN, CLOCK, FPS, f_music, sfxButtonClick, game_folder, imgCursor, \
      imgCredits, imgHowToPlay, imgLoadingScreen, imgMazeReady, bgMainMenu, bgGameOver, bgCredits, bgHowToPlay, \
-     bgSettings, bgAlgorithms, bgCellSize, bgVisualMode, ftPause, ftCredits, cell_size, cell_wall_size, rows, cols
+     bgSettings, bgAlgorithms, bgCellSize, bgVisualMode, bgDifficulty, ftPause, ftCredits, cell_size, cell_wall_size,\
+     rows, cols
 
 SCREEN = DEFAULT_SCREEN
 
@@ -33,6 +34,7 @@ pygame.mixer.init()
 menuFont = Font(join(game_folder, '04B30.ttf'), DEFAULT_SCREEN.get_height()//16)
 algorithmFont = Font(join(game_folder, '04B30.ttf'), DEFAULT_SCREEN.get_height()//20)
 cellFont = Font(join(game_folder, '04B30.ttf'), DEFAULT_SCREEN.get_height()//5)
+difficultyFont = Font(join(game_folder, '04B30.ttf'), DEFAULT_SCREEN.get_height()//8)
 mouse.set_visible(False)
 game_on = True
 sfxButtonClick.set_volume(0.5)
@@ -93,9 +95,10 @@ def main_menu():
                     cell = set_cell_size()
                     algorithm = set_algorithm()
                     mode = set_mode()
+                    difficulty = set_difficulty()
                     sleep(1)
                     maze = load_game_screen(cell, algorithm, mode)
-                    game_loop(cell, maze, SCREEN, menuFont)
+                    game_loop(cell, maze, SCREEN, menuFont, difficulty)
                     music.load(join(f_music, 'Menu_Music.ogg'))
                     music.set_volume(0.15)
                     music.play(loops=-1)
@@ -206,7 +209,6 @@ def load_game_screen(new_cell_size, new_algorithm, new_mode):
             return growing_tree
         case 4:
             return prims
-
 
 def set_cell_size():
 
@@ -433,6 +435,53 @@ def set_mode():
         display.update()
 
     return mode
+
+
+def set_difficulty():
+
+    difficulty = 0
+    selection = True
+
+    button_difficulty1 = Rect((SCREEN.get_width()//3.75), SCREEN.get_height()//3.2, SCREEN.get_width()//2, SCREEN.get_height()//20)
+    button_difficulty2 = Rect((SCREEN.get_width()//3.75), SCREEN.get_height()//1.78, SCREEN.get_width()//2, SCREEN.get_height()//20)
+    button_difficulty3 = Rect((SCREEN.get_width()//3.75), SCREEN.get_height()//1.25, SCREEN.get_width()//2, SCREEN.get_height()//20)
+
+    while selection:
+
+        mouse_pos = mouse.get_pos()
+
+        for event in pygame.event.get():
+
+            if event.type == pygame.QUIT:
+                exit()
+
+            if event.type == MOUSEBUTTONDOWN and event.button == 1:
+
+                if button_difficulty1.collidepoint(mouse.get_pos()):
+                    difficulty = 500
+                    sfxButtonClick.play()
+                    selection = False
+
+                if button_difficulty2.collidepoint(mouse.get_pos()):
+                    difficulty = 200
+                    sfxButtonClick.play()
+                    selection = False
+
+                if button_difficulty3.collidepoint(mouse.get_pos()):
+                    difficulty = 50
+                    sfxButtonClick.play()
+                    selection = False
+
+        SCREEN.blit(pygame.transform.scale(bgDifficulty, (SCREEN.get_width(), SCREEN.get_height())), (0, 0))
+
+        buttons_print(button_difficulty1, 'EASY', difficultyFont)
+        buttons_print(button_difficulty2, 'NORMAL', difficultyFont)
+        buttons_print(button_difficulty3, 'HARD', difficultyFont)
+
+        SCREEN.blit(imgCursor, (mouse_pos[0], mouse_pos[1]))
+        display.update()
+
+    return difficulty
 
 
 def settings():

@@ -46,7 +46,12 @@ class Cell:
         self.rect = None
         self.north_rect = None
         self.east_rect = None
-        self.west_rect = None
+
+        # Enemy Position
+        self.visited_up = False
+        self.visited_down = False
+        self.visited_left = False
+        self.visited_right = False
 
     def calculate_heuristic(self, rows, cols):
         h_distances = Heuristic(rows, cols)

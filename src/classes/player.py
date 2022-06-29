@@ -39,12 +39,6 @@ class Player(Sprite):
             self.speed = 2
             self.rect.y += self.speed
 
-        if self.rect.left < 3:
-            self.rect.left = self.rect.left + self.cell//(self.cell * 0.5)
-
-        if self.rect.bottom > self.SCREEN.get_height():
-            self.rect.bottom = self.rect.bottom - self.cell//(self.cell * 0.5)
-
     def move_back(self):
         self.rect.top = self.rect.top + self.cell//(self.cell * 0.5)
 
