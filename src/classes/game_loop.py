@@ -8,14 +8,14 @@ from os.path import join
 from pygame.mixer import music
 from pygame.sprite import Group
 
-from src.Directory_Settings import CLOCK, FPS, ftPause, bgGameOver, f_music
-from src.classes.game_functions import game_pause, game_over
-from src.classes.player import Player
-from src.classes.enemy_a import EnemyA
-from src.classes.enemy_b import EnemyB
-from src.classes.enemy_c import EnemyC
-from src.classes.wall import Wall
-from src.classes.goal import Goal
+from Directory_Settings import CLOCK, FPS, ftPause, bgGameOver, f_music
+from classes.game_functions import game_pause, game_over
+from classes.player import Player
+from classes.enemy_a import EnemyA
+from classes.enemy_b import EnemyB
+from classes.enemy_c import EnemyC
+from classes.wall import Wall
+from classes.goal import Goal
 
 pygame.init()
 pygame.mixer.init()

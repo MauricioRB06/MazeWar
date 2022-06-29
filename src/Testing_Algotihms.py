@@ -1,10 +1,11 @@
-from src.ui.colors import *
-from src.ui.ui import *
-from src.classes.a_recursiveBacktracker import RecursiveBacktracker
-from src.classes.a_binaryTree import BinaryTree
-from src.classes.a_growingTree import GrowingTree
-from src.classes.a_prims import Prims
-from src.classes.grid import Grid
+
+from ui.colors import *
+from ui.ui import *
+from classes.a_recursiveBacktracker import RecursiveBacktracker
+from classes.a_binaryTree import BinaryTree
+from classes.a_growingTree import GrowingTree
+from classes.a_prims import Prims
+from classes.grid import Grid
 import time
 
 # Initialize pygame

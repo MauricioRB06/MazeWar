@@ -1,8 +1,9 @@
+
 import pygame
 from Directory_Settings import spEnemy1
 from pygame.transform import scale
 from pygame.sprite import Sprite
-from src.classes.enemy_collider import EnemyCollider
+from classes.enemy_collider import EnemyCollider
 from random import randint
 
 

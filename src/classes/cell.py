@@ -3,7 +3,7 @@
 import pygame
 from src.ui.colors import *
 from classes.heuristic import Heuristic
-from src.Directory_Settings import cell_size
+from Directory_Settings import cell_size
 
 pygame.font.init()
 text_font = pygame.font.SysFont("Arial", 8)

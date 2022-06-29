@@ -1,7 +1,7 @@
 # MazeWar Project - File 10
 
-from src.classes.cell import *
-from src.ui.colors import *
+from classes.cell import *
+from ui.colors import *
 from ui.colors import GridColor
 import random
 

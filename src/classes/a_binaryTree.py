@@ -14,7 +14,7 @@
 import pygame
 import random
 import time
-from src.classes.grid import Grid, update
+from classes.grid import Grid, update
 
 
 class BinaryTree:
