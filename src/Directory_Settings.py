@@ -28,7 +28,7 @@ f_credits = join(f_menu, 'Credits')
 CLOCK = Clock()
 FPS = 60
 DEFAULT_SCREEN = set_mode((600, 600))
-set_caption('MazeWar [0.5] - Developer Version')
+set_caption('MazeWar [1.0]')
 set_icon(load(join(images_folder, 'icon.png')).convert_alpha())
 
 # ---------- Maze Defaults / Grid and Cell's Default Settings ( 20 )

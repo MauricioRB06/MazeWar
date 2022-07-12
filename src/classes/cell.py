@@ -1,7 +1,7 @@
 # MazeWar Project - File 9
 
 import pygame
-from src.ui.colors import *
+from ui.colors import *
 from classes.heuristic import Heuristic
 from Directory_Settings import cell_size
 

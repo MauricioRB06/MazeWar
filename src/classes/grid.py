@@ -1,6 +1,6 @@
 # MazeWar Project - File 10
 
-from classes.cell import *
+from classes.cell import Cell
 from ui.colors import *
 from ui.colors import GridColor
 import random
